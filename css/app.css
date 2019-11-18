@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Raleway, sans-serif;
+}
+.banner {
+}
+.banner img {
+  width: -moz-available;
+  opacity: 0.4;
+}
+.appcontent .app {
+  border: 0.3px solid #26c6da;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  height: 400px;
+}
+.left_side_content {
+  padding: 10px;
+}
