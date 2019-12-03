@@ -6,7 +6,8 @@ $stk_name = $_POST['stk_name'];
 //$query = "CALL stock_view('$stk_name')";
 
 ?>
-<table class="table mt-5">
+<div class="stock_medicine_table">
+<table class="table mt-4">
   <thead class="thead-light">
     <tr>
       <th scope="col">Medicine ID</th>
@@ -21,6 +22,7 @@ $stk_name = $_POST['stk_name'];
     <?php  
     $query = "CALL stock_view('$stk_name')";
     $result = $crud->getData($query); 
+    if($result){    
     foreach($result as $res){
         echo "<tr>";
         echo "<td>".$res['medicine_id']."</td>";
@@ -28,9 +30,13 @@ $stk_name = $_POST['stk_name'];
         echo "<td>".$res['company']."</td>";
         echo "<td>".$res['entry_date']."</td>";
         echo "<td>".$res['price']."</td>";
-        echo "<td class='text-primary'>".$res['stock_catagory']."</td>";
+        echo "<td class='text-primary font-weight-bold'>".$res['stock_catagory']."</td>";
         echo "</tr>"; 
-    }      
+    }   
+  }else{    
+    echo "<td class='text-danger'>No Item Match!</td>";
+  }   
     ?>
   </tbody>
 </table>
+</div>
