@@ -116,8 +116,33 @@ crossorigin="anonymous"></script>
                                 <input type="text" class="input_width form-control" id="delete_id" placeholder="Type delete id" >
                             </div>
                             <input type="button" id="m_del" class="input_width btn btn-sm btn-outline-danger" value="Delete">
+
+                            <p class="mt-4">Add Medicine</p>
+                            <div class="input-group" style="margin-top:-12px">
+                                <input type="text" class=" form-control" placeholder="Medicine name" id="mname">                                
+                                <select name="mcom" id="mcom" class="form-control">
+                                <option value=""selected disabled>-- Select Company --</option>
+                                    <?php
+                                    foreach ($company_list as $com){
+                                        if ($com['company']==get['company']){
+                                        break;
+                                        }
+                                        else{
+                                            echo "<option>".$com['company']."</option>";
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                                </div>
+                                <div class="input-group">
+                                <input type="text" class="form-control" id="mdate" placeholder="Entry date">
+                                <input type="number" class="form-control" placeholder="Price" id="mprice">
+                                </div>
+                                <div class="input-group">
+                                <input type="number" class="form-control" placeholder="Stock number" id="mstock">
+                                </div>
                             </div>
-                            
+                            <input type="button" id="add_m" class="mt-3 input_width btn btn-sm btn-outline-secondary" value="Add Medicine">
                         </div>
                     </div>
                     <div class="col-8">
@@ -163,12 +188,12 @@ crossorigin="anonymous"></script>
                     </div>
                 </div>
             </div>
-            <div class="customer app p-2">
+            <!-- <div class="customer app p-2">
                 <div class="row">
                     <div class="col-4"><h3>Customer</h3></div>
                     <div class="col-8"></div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 <script type="text/javascript">
@@ -249,6 +274,21 @@ crossorigin="anonymous"></script>
                 data:{sid:sid},
                 success:function(response){
                     $('#staff_list_show').html(response);
+                }
+            })
+        })
+        $('#add_m').click(function(){
+            var mn = $('#mname').val();
+            var mc = $('#mcom').val();
+            var md = $('#mdate').val();
+            var mp = $('#mprice').val();
+            var ms = $('#mstock').val();
+            $.ajax({
+                url:'add_medicine.php',
+                type:'POST',
+                data:{mn:mn, mc:mc, md:md, mp:mp, ms:ms},
+                success:function(response){
+                    $('#medicine_list_show').html(response);
                 }
             })
         })

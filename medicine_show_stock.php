@@ -16,6 +16,7 @@ $stk_name = $_POST['stk_name'];
       <th scope="col">Stock Entry Date</th>
       <th scope="col">Price</th>
       <th scope="col">Stock</th>
+      <!-- <th scope="col">Stock ID</th> -->
     </tr>
   </thead>
   <tbody>
@@ -31,6 +32,7 @@ $stk_name = $_POST['stk_name'];
         echo "<td>".$res['entry_date']."</td>";
         echo "<td>".$res['price']."</td>";
         echo "<td class='text-primary font-weight-bold'>".$res['stock_catagory']."</td>";
+        //echo "<td>".$res['stock_id']."</td>";
         echo "</tr>"; 
     }   
   }else{    

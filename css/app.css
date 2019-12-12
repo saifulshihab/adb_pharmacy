@@ -15,7 +15,7 @@ body {
   height: 400px;
 }
 .appcontent .medicine{
-  height: 470px;
+  height: 700px;
 }
 
 .med_table th, td, .stock_medicine_table table th, td{
@@ -27,6 +27,9 @@ text-align: center;
 #staff_list_show, #medicine_list_show, #stock_medicinde{
   overflow-y: scroll;
   height: 250px;
+}
+#medicine_list_show{  
+  height: 520px;
 }
 .h_3{
   padding: 3px 5px;
